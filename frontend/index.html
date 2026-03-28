@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AESRS - Swarm Commander</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <span class="pulse-dot"></span>
+                <h1>AESRS Swarm Mesh</h1>
+            </div>
+            <div class="controls">
+                <button id="trigger-btn" class="btn-danger">Trigger Accident Simulation</button>
+            </div>
+        </header>
+        
+        <main>
+            <section class="map-section">
+                <div class="map-container" id="map">
+                    <!-- Nodes will be injected here -->
+                    <div class="grid-overlay"></div>
+                </div>
+            </section>
+            
+            <aside class="sidebar">
+                <div class="panel">
+                    <h2>Live Network Mesh</h2>
+                    <ul id="node-list" class="node-list">
+                        <!-- Discovered nodes -->
+                    </ul>
+                </div>
+                
+                <div class="panel console-panel" style="flex: 1; margin-bottom: 0; padding-bottom: 10px;">
+                    <h2>P2P Event Log</h2>
+                    <div class="console" id="console"></div>
+                </div>
+                
+                <div class="panel ledger-panel" style="flex: 1; border-top: 1px solid #334155; padding-top: 10px;">
+                    <h2>Immutable Ledger / Blockchain</h2>
+                    <ul id="ledger-list" class="node-list" style="max-height: 200px;">
+                        <!-- Blockchain records -->
+                    </ul>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
