@@ -3,46 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AESRS - Swarm Commander</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>AESRS - Swarm Commander Demo Proposal</title>
+    <!-- Use Outfit font for a more modern, premium tech feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
+    <div class="app-background"></div>
     <div class="app-container">
-        <header>
+        <header class="glass-panel main-header">
             <div class="logo">
-                <span class="pulse-dot"></span>
-                <h1>AESRS Swarm Mesh</h1>
+                <div class="logo-icon-wrapper">
+                    <span class="pulse-dot"></span>
+                </div>
+                <div class="logo-text">
+                    <h1>AESRS Swarm Mesh</h1>
+                    <span class="subtitle">Live Autonomous Drone Network Demo</span>
+                </div>
             </div>
-            <div class="controls">
-                <button id="trigger-btn" class="btn-danger">Trigger Accident Simulation</button>
+            <div class="controls demo-controls">
+                <div class="control-group">
+                    <label for="scenario-type">Emergency Scenario</label>
+                    <div class="select-wrapper">
+                        <select id="scenario-type" class="premium-select">
+                            <option value="multi-car-pileup">Multi-Car Pileup</option>
+                            <option value="chemical-spill">Chemical Spill</option>
+                            <option value="critical-medical">Critical Medical</option>
+                            <option value="forest-fire">Forest Fire</option>
+                        </select>
+                        <div class="select-arrow">▼</div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="severity-level">Severity Profile</label>
+                    <div class="select-wrapper">
+                        <select id="severity-level" class="premium-select">
+                            <option value="critical" class="opt-critical">Critical (Priority 1)</option>
+                            <option value="high" class="opt-high">High (Priority 2)</option>
+                            <option value="moderate" class="opt-moderate">Moderate (Priority 3)</option>
+                        </select>
+                        <div class="select-arrow">▼</div>
+                    </div>
+                </div>
+                <button id="trigger-btn" class="btn-glow">
+                    <span class="btn-text">INITIATE SCENARIO</span>
+                    <span class="btn-icon">⚡</span>
+                </button>
             </div>
         </header>
         
         <main>
-            <section class="map-section">
+            <section class="map-section glass-panel">
+                <div class="map-header">
+                    <h2>Live Region Scanner</h2>
+                    <div class="status-badge" id="global-status"><span class="status-dot"></span> SECURE</div>
+                </div>
                 <div class="map-container" id="map">
                     <!-- Nodes will be injected here -->
                     <div class="grid-overlay"></div>
+                    <div class="radar-sweep"></div>
+                    
+                    <!-- Animation overlay for demo proposal -->
+                    <div id="demo-overlay" class="demo-overlay hidden">
+                        <div class="scanning-circle">
+                            <div class="scan-line"></div>
+                        </div>
+                        <h3 id="overlay-text">ANALYZING DISTURBANCE...</h3>
+                        <p class="overlay-subtext">Calibrating Swarm AI Response</p>
+                    </div>
                 </div>
             </section>
             
             <aside class="sidebar">
-                <div class="panel">
-                    <h2>Live Network Mesh</h2>
+                <div class="panel glass-panel">
+                    <div class="panel-header">
+                        <h2>Live Network Mesh</h2>
+                        <div class="node-count" id="node-counter">0 Active Agents</div>
+                    </div>
                     <ul id="node-list" class="node-list">
                         <!-- Discovered nodes -->
                     </ul>
                 </div>
                 
-                <div class="panel console-panel" style="flex: 1; margin-bottom: 0; padding-bottom: 10px;">
-                    <h2>P2P Event Log</h2>
+                <div class="panel console-panel glass-panel">
+                    <div class="panel-header">
+                        <h2>AI Intelligence Log</h2>
+                    </div>
                     <div class="console" id="console"></div>
                 </div>
                 
-                <div class="panel ledger-panel" style="flex: 1; border-top: 1px solid #334155; padding-top: 10px;">
-                    <h2>Immutable Ledger / Blockchain</h2>
-                    <ul id="ledger-list" class="node-list" style="max-height: 200px;">
+                <div class="panel ledger-panel glass-panel">
+                    <div class="panel-header">
+                        <h2>Immutable Blockchain Ledger</h2>
+                        <span class="ledger-status">SYNCED</span>
+                    </div>
+                    <ul id="ledger-list" class="node-list">
                         <!-- Blockchain records -->
                     </ul>
                 </div>
